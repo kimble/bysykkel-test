@@ -2,12 +2,10 @@
   "name": "bysykkel",
   "version": "1.0.0",
   "description": "Test av bysykkel api",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "server.js",
   "author": "Kim Betti",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.2"
   }
 }
