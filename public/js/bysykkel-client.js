@@ -33,7 +33,7 @@ module.exports.createClient = (apiKey) => {
 
     return () => {
         const availabilityReq = get('/stations/availability').then(r => r.stations);
-        const stationsReq = get('/stations').then(r => r.stations);
+        const stationsReq = get('/stations').then(r => r.stations); // Her kunne vi sikkert cachet resultatet en stund
         const statusReq = get('/status').then(r => r.status);
 
         return Promise.all([ stationsReq, statusReq, availabilityReq ]).then((d) => {
