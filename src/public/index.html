@@ -1,1 +1,36 @@
-Bysykkel test
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bysykkel stasjoner</title>
+
+    <style>
+        body {
+            margin: 40px;
+        }
+
+        #stations {
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ;
+            background-color: #fff;
+            color: #444;
+        }
+
+        .station {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bysykkel stasjoner</h1>
+
+    <div id="stations">
+        <div class="station">Hei</div>
+    </div>
+
+    <script src="frontend.js"></script>
+
+</body>
+</html>

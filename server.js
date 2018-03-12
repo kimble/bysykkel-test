@@ -24,7 +24,7 @@ const proxyEndpoint = (req, res) => {
 // Sett opp express
 const app = express();
 app.use(express.static('src/public'));
-app.get('/proxy/stations', proxyEndpoint);
+app.get('/proxy', proxyEndpoint);
 
 app.listen(3000, () => {
     console.log("Yey! Bysykkel app is up and running at:");
