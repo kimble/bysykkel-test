@@ -1,4 +1,4 @@
-const bysykkel = require("./public/js/bysykkel-client");
+const bysykkel = require("./src/server/bysykkel-client");
 const express = require('express');
 
 
@@ -23,7 +23,7 @@ const proxyEndpoint = (req, res) => {
 
 // Sett opp express
 const app = express();
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 app.get('/proxy/stations', proxyEndpoint);
 
 app.listen(3000, () => {
