@@ -12,10 +12,15 @@ Hvordan kjøre det opp lokalt?
 Koden er utviklet med NodeJS v9.8.0. Jeg er ikke fryktelig kjent med Node så jeg tør ikke å garantere at jeg
 ikke har brukt noe som ikke er tilgjengelig i tidligere versjoner :-)
 
+
+### Uten Docker
+
     git clone git@github.com:kimble/bysykkel-test.git
     cd bysykkeø-test
     npm install
     API_KEY=*** node server.js
+
+### Med Docker
 
 Har du Docker installert kan du bygge et image og spinne det opp i en container:
 
