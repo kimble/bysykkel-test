@@ -3,33 +3,76 @@
 <head>
     <meta charset="utf-8">
     <title>Bysykkel stasjoner</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <style>
         body {
             margin: 40px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            text-transform: uppercase;
         }
 
         #stations {
             display: grid;
             grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
             background-color: #fff;
             color: #444;
         }
 
         .station {
-            padding: 10px;
+            font-size: 100%;
+        }
+
+        .station.closed {
+            background-color: #ff8145;
+        }
+
+        .station small {
+            font-size: 60%;
+            color: #555;
+        }
+
+
+        #errorContainer {
+            color: white;
+            background-color: #ff8145;
+            border-radius: 2px;
+            margin: 1em;
+            padding: 0.5em;
+            display: inline-block;
+            float: right;
+        }
+
+        body #loader,#errorContainer {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        body.loading #loader {
+            opacity: 1;
+        }
+        body.error #errorContainer {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <h1>Bysykkel stasjoner</h1>
 
-    <div id="stations">
-        <div class="station">Hei</div>
+
+    <div id="errorContainer">
+        <strong>Error: </strong> <span class="message"></span>
     </div>
 
+    <h1>Bysykkel stasjoner i Oslo<img src="assets/loader.gif" alt="Loading.." id="loader"></h1>
+
+    <div id="stations">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
     <script src="frontend.js"></script>
 
 </body>
