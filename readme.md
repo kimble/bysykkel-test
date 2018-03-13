@@ -3,6 +3,9 @@ Bysykkel test
 
 Eksperimenterer litt med [bysykkel api-et](https://developer.oslobysykkel.no/api) til Oslo Kommune. Fikk samtidig 
 testet ut hvordan [Express.JS](https://expressjs.com/) fungerer som en proxy for enkle prosjekter som dette. 
+Frontend er implementert med [d3.js](https://d3js.org) og et veldig enkelt pattern for oversiktelig mutering av 
+tilstand og separasjon av koden som oppdaterer forskjellige deler av skjermbildet. Dette er selvfølgelig bare skrevet
+for moroskyld og kun testet med Chrome.  
 
 Alle stasjonene var stengt når jeg puslet med dette og dokumentasjonen var litt mangelfull så jeg har gjort
 noen antagelser her og der. 
@@ -33,6 +36,5 @@ Har du Docker installert kan du bygge et image og spinne det opp i en container:
 
 Om alt har gått etter planen har du nå en veldig enkel bysykkel server kjørende på http://localhost:3000/
 
-Screenshot
-----------
+
 ![Screenshot](https://github.com/kimble/bysykkel-test/raw/master/docs/screenshot.png)
