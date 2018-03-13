@@ -12,30 +12,73 @@
         }
 
         h1 {
+            font-size: 250%;
             text-transform: uppercase;
+            margin-bottom: 3em;
+            transform: rotate(-2deg);
         }
+        h1 span {
+            background-color: #cd37cd;
+            border-radius: 3px;
+            padding: 5px 10px;
+            color: white;
+            box-shadow: 2px 3px #ed80f1;
+        }
+
 
         #stations {
             display: grid;
             grid-gap: 10px;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) ) ;
+            grid-template-columns: repeat(auto-fill, 250px);
             background-color: #fff;
             color: #444;
         }
 
         .station {
             font-size: 100%;
+            border-radius: 3px;
+            padding: 5px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fafafa;
+            border: 2px solid #e1e2eb;
         }
 
-        .station.closed {
-            background-color: #ff8145;
+        .station .closed-sign {
+            display: none;
         }
 
-        .station small {
-            font-size: 60%;
+        .station.closed .closed-sign {
+            display: inline-block;
+            margin: 2px 5px;
+            background-color: orange;
+            font-weight: bold;
+            font-size: 70%;
+            color: white;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .station h2 {
+            margin-top: 0;
+            font-size: 130%;
+        }
+
+        .station h2 .span {
+            background-color: #cd37cd;
+            color: white;
+        }
+
+        .station .subtitle {
+            text-transform: uppercase;
+            font-size: 55%;
             color: #555;
         }
 
+        .station .availability {
+            text-align: right;
+        }
 
         #errorContainer {
             color: white;
@@ -67,7 +110,7 @@
         <strong>Error: </strong> <span class="message"></span>
     </div>
 
-    <h1>Bysykkel stasjoner i Oslo<img src="assets/loader.gif" alt="Loading.." id="loader"></h1>
+    <h1><span>Bysykkel stasjoner i Oslo</span> <img src="assets/loader.gif" alt="Loading.." id="loader"></h1>
 
     <div id="stations">
     </div>

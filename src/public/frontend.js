@@ -79,21 +79,24 @@ const createStationUpdater = () => {
         const enterStation = selection.enter().append("div").attr("class", "station");
 
         const appendHeader = enterStation.append("h2");
-        appendHeader.append("span").text(d => d.title);
+        appendHeader.append("span").attr("class", "title").text(d => d.title);
         appendHeader.append("br");
-        appendHeader.append("small").text(d => d.subtitle);
-        enterStation.append("div").attr("class", "availability");
+        appendHeader.append("small").attr("class", "subtitle").text(d => d.subtitle);
+        const appendAvailability = enterStation.append("div").attr("class", "availability");
+        appendAvailability.append("span").attr("class", "closed-sign").text("CLOSED");
+        appendAvailability.append("span").attr("class", "message");
 
         // Enter + update
 
         const merge = enterStation.merge(selection);
 
         merge.classed("closed", (d) => d.closed);
-        merge.select('.availability').html((d) => `${d.availability.bikes} av ${d.availability.locks} (${d.number_of_locks})`);
+        merge.classed("open", (d) => !d.closed);
+        merge.select('.availability .message').html((d) => `Sykler: ${d.availability.bikes} av ${d.availability.locks} (${d.number_of_locks})`);
     }
 };
 
-
+// Alt som er interessert i endringer i tilstand
 const appState = createApplicationState([
     createSpinnerUpdater(),
     createErrorUpdater(),
