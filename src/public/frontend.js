@@ -14,7 +14,7 @@ const createApplicationState = (subscribers) => {
     let state = {
         stations: [],
         loading: false,
-        error: null
+        error: false
     };
 
     const mutate = (update) => {
@@ -34,7 +34,7 @@ const createApplicationState = (subscribers) => {
             mutate({
                 stations: stations.sort(sortFunction),
                 loading: false,
-                error: null
+                error: false
             });
         },
 
@@ -61,7 +61,7 @@ const createErrorUpdater = () => {
     const errorMessage = d3.select("#errorContainer").select(".message");
 
     return (state) => {
-        body.classed("error", state.error === null);
+        body.classed("error", state.error !== false);
         errorMessage.html(state.error);
     };
 };
@@ -116,7 +116,8 @@ const fetchAndReschedule = () => {
             reschedule();
         })
         .catch((err) => {
-            appState.loadingFailed(err);
+            appState.loadingFailed("Lasting av data feilet..");
+            console.error(err);
             reschedule();
         });
 };

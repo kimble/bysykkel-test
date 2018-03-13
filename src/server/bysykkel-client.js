@@ -25,7 +25,7 @@ const mapById = (arr) => {
     return arr.reduce(reducer, {});
 };
 
-const random = (max) => Math.floor(Math.random() * Math.floor(max));
+const random = (max) => Math.floor(Math.random() * Math.floor(max)); // For å teste mens api-et gir "kjedelig" data
 
 module.exports.createClient = (apiKey) => {
     const get = (path) => {
