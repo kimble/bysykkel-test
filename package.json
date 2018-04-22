@@ -5,9 +5,15 @@
   "main": "server.js",
   "author": "Kim Betti",
   "license": "ISC",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "express": "^4.16.2",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
   }
 }

@@ -37,4 +37,14 @@ Har du Docker installert kan du bygge et image og spinne det opp i en container:
 Om alt har gått etter planen har du nå en veldig enkel bysykkel server kjørende på http://localhost:3000/
 
 
+Tester
+------
+
+Testene er implementert med Jest. Gitt at du har kjørt `npm install` kan tester kjøres med `npm run test`. 
+
+
+
+Screenshot
+-----------
+
 ![Screenshot](https://github.com/kimble/bysykkel-test/raw/master/docs/screenshot.png)
