@@ -48,6 +48,7 @@ module.exports.createClient = (apiKey) => {
                    subtitle: s.subtitle,
                    number_of_locks: s.number_of_locks,
                    availability: availabilityResponse[s.id] ? availabilityResponse[s.id].availability : { bikes: -1, locks: -1 },
+                   position: s.center,
                    closed: statusResponse.all_stations_closed ? true : statusResponse.stations_closed.indexOf(s.id) > -1 // Manglet dok. antar at stations_closed er et array med stasjonens id
                };
             });
