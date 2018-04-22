@@ -47,7 +47,6 @@ const createApplicationState = (subscribers) => {
     }
 };
 
-
 const createSpinnerUpdater = () => {
     const body = d3.select("body");
 
@@ -96,32 +95,43 @@ const createStationUpdater = () => {
     }
 };
 
-// Alt som er interessert i endringer i tilstand
-const appState = createApplicationState([
-    createSpinnerUpdater(),
-    createErrorUpdater(),
-    createStationUpdater()
-]);
 
 
-const fetchDataFromBackend = () => fetch('/proxy').then(r => r.json());
 
-const fetchAndReschedule = () => {
-    const reschedule = () => setTimeout(fetchAndReschedule, interval);
+const startApplication = (d3) => {
 
-    appState.loadingData();
-    fetchDataFromBackend()
-        .then((data) => {
-            appState.dataLoaded(data);
-            reschedule();
-        })
-        .catch((err) => {
-            appState.loadingFailed("Lasting av data feilet..");
-            console.error(err);
-            reschedule();
-        });
+    // Alt som er interessert i endringer i tilstand
+    const appState = createApplicationState([
+        createSpinnerUpdater(),
+        createErrorUpdater(),
+        createStationUpdater()
+    ]);
+
+    const fetchDataFromBackend = () => fetch('/proxy').then(r => r.json());
+
+    const fetchAndReschedule = () => {
+        const reschedule = () => setTimeout(fetchAndReschedule, interval);
+
+        appState.loadingData();
+        fetchDataFromBackend()
+            .then((data) => {
+                appState.dataLoaded(data);
+                reschedule();
+            })
+            .catch((err) => {
+                appState.loadingFailed("Lasting av data feilet..");
+                console.error(err);
+                reschedule();
+            });
+    };
+
+
+    // Sparker i gang ballen
+    fetchAndReschedule();
+
 };
 
 
-// Sparker i gang ballen
-fetchAndReschedule();
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports.createAppState = createApplicationState;
+}
