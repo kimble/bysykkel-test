@@ -47,4 +47,6 @@ Testene er implementert med Jest. Gitt at du har kjørt `npm install` kan tester
 Screenshot
 -----------
 
+![Med kart](https://github.com/kimble/bysykkel-test/raw/master/docs/screenshot_kart.png)
+
 ![Screenshot](https://github.com/kimble/bysykkel-test/raw/master/docs/screenshot.png)

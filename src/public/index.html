@@ -100,7 +100,21 @@
         body.error #errorContainer {
             opacity: 1;
         }
+
+        #map {
+            margin-bottom: 1em;
+            border: 2px solid #ccc;
+        }
+
+        p.creds {
+            font-style: italic;
+            margin-top: 2em;
+            color: #888;
+        }
     </style>
+
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
 </head>
 <body>
 
@@ -112,6 +126,7 @@
 
     <h1><span>Bysykkel stasjoner i Oslo</span> <img src="assets/loader.gif" alt="Loading.." id="loader"></h1>
 
+    <div id="map"></div>
     <div id="stations">
     </div>
 
@@ -119,8 +134,13 @@
     <script src="frontend.js"></script>
 
     <script>
-        startApplication(d3);
+        startApplication(d3, ol);
     </script>
+
+
+    <p class="creds">
+        Marker basert på: https://commons.wikimedia.org/wiki/File:Map_pin_icon.svg
+    </p>
 
 </body>
 </html>
