@@ -92,7 +92,7 @@ const createStationUpdater = () => {
 
         merge.classed("closed", (d) => d.closed);
         merge.classed("open", (d) => !d.closed);
-        merge.select('.availability .message').html((d) => `Sykler: ${d.availability.bikes} av ${d.availability.locks} (${d.number_of_locks})`);
+        merge.select('.availability .message').html((d) => `Sykler: ${d.availability.bikes} av ${d.number_of_locks}`);
     }
 };
 
