@@ -41,9 +41,8 @@ const createStationFactory = () => {
     };
 
     return (override) => {
-        let defaultOverride = { id: ++idCounter };
-        let next = { ...defaultState, defaultOverride };
-        return { ...next, override };
+        const defaultOverride = { id: ++idCounter };
+        return Object.assign({}, defaultState, defaultOverride, override);
     };
 };
 
@@ -91,7 +90,20 @@ describe('Oppdatering av tilstand', () => {
             stations: stations
         });
     });
+
+    test('Listen sorteres etter navn', () => {
+        const stations = [
+            stationFactory({ title: 'Stasjon C' }),
+            stationFactory({ title: 'Stasjon A' }),
+            stationFactory({ title: 'Stasjon B' })
+        ];
+
+        session.api.loadingData();
+        session.api.dataLoaded(stations);
+
+        const currentState = session.readCurrentState();
+
+        expect(currentState.stations.map(s => s.title))
+            .toEqual([ 'Stasjon A', 'Stasjon B', 'Stasjon C' ]);
+    });
 });
-
-
-
