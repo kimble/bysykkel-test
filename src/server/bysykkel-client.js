@@ -25,7 +25,6 @@ const mapById = (arr) => {
     return arr.reduce(reducer, {});
 };
 
-const random = (max) => Math.floor(Math.random() * Math.floor(max)); // For å teste mens api-et gir "kjedelig" data
 
 module.exports.createClient = (apiKey) => {
     const get = (path) => {
@@ -49,9 +48,7 @@ module.exports.createClient = (apiKey) => {
                    subtitle: s.subtitle,
                    number_of_locks: s.number_of_locks,
                    availability: availabilityResponse[s.id] ? availabilityResponse[s.id].availability : { bikes: -1, locks: -1 },
-                   // availability: { bikes: random(10), locks: random(20) }, // For å teste oppdatering
                    closed: statusResponse.all_stations_closed ? true : statusResponse.stations_closed.indexOf(s.id) > -1 // Manglet dok. antar at stations_closed er et array med stasjonens id
-                   //closed: random(10) > 7
                };
             });
         });
