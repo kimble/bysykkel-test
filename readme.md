@@ -49,4 +49,9 @@ Screenshot
 
 ![Med kart](https://github.com/kimble/bysykkel-test/raw/master/docs/screenshot_kart.png)
 
+Stasjoner med minst en ledig sykkel vises som en grønn marker mens de uten sykler vises som grønne.
+Her kunne man sikkert lagt inn en option som viser stasjoner med ledige låser som grønne istedenfor
+dersom man er på jakt etter sted å sette fra seg sykkelen man har lånt. Eller kanskje visualisere begge
+deler på en gang.
+
 ![Screenshot](https://github.com/kimble/bysykkel-test/raw/master/docs/screenshot.png)
