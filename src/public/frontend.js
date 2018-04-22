@@ -9,7 +9,7 @@ const interval = 20/*sek*/ * 1000;
  * state blir mutert.
  */
 const createApplicationState = (subscribers) => {
-    const sortFunction = (s1, s2) => d3.ascending(s1.title, s2.title);
+    const sortFunction = (s1, s2) => s1 < s2 ? -1 : s1 > s2 ? 1 : s1 >= s2 ? 0 : NaN;
 
     let state = {
         stations: [],
