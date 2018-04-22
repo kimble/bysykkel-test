@@ -52,7 +52,7 @@ const createStationFactory = () => {
 
 describe('Oppdatering av tilstand', () => {
     const session = createTestSession();
-    const stationFactory = createStationFactory();
+    const lagStasjon = createStationFactory();
 
     test('Flagger lasting', () => {
         session.api.loadingData();
@@ -77,8 +77,8 @@ describe('Oppdatering av tilstand', () => {
 
     test('Når vi setter listen med stasjoner fjernes fires flagget ned', () => {
         const stations = [
-            stationFactory({ title: 'Stasjon A' }),
-            stationFactory({ title: 'Stasjon B' })
+            lagStasjon({ title: 'Stasjon A' }),
+            lagStasjon({ title: 'Stasjon B' })
         ];
 
         session.api.loadingData();
@@ -93,9 +93,9 @@ describe('Oppdatering av tilstand', () => {
 
     test('Listen sorteres etter navn', () => {
         const stations = [
-            stationFactory({ title: 'Stasjon C' }),
-            stationFactory({ title: 'Stasjon A' }),
-            stationFactory({ title: 'Stasjon B' })
+            lagStasjon({ title: 'Stasjon C' }),
+            lagStasjon({ title: 'Stasjon A' }),
+            lagStasjon({ title: 'Stasjon B' })
         ];
 
         session.api.loadingData();
